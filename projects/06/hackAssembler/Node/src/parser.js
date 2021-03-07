@@ -16,9 +16,10 @@ module.exports = class Parser {
   commandType() {
     if (this.currentInstruction[0] === "/" || this.currentInstruction === "") {
       return null;
-    }
-    if (this.currentInstruction[0] === "@") {
+    } else if (this.currentInstruction[0] === "@") {
       return "A_COMMAND";
+    } else if (this.currentInstruction[0] === "(") {
+      return "L_COMMAND";
     } else {
       return "C_COMMAND";
     }
